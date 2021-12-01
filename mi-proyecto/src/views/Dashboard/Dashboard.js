@@ -41,6 +41,7 @@ const Dashboard = () => {
   const [productData, setproductData] = useState([]);
   const [userData, setUserData] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
+  const [categoryNData, setCategoryNData] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3030/api/product")
       .then((response) => {
@@ -69,6 +70,16 @@ const Dashboard = () => {
       })
       .then((response) => {
         setCategoryData(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    fetch("http://localhost:3030/api/category")
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        setCategoryNData(response);
       })
       .catch((err) => {
         console.log(err);
@@ -125,7 +136,7 @@ const Dashboard = () => {
                 <Icon>info_outline</Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Cantidad De Categorias</p>
-              <h3 className={classes.cardTitle}>{categoryData.count}</h3>
+              <h3 className={classes.cardTitle}>{categoryNData.count}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
