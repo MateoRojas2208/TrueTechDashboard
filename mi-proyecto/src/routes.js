@@ -32,7 +32,7 @@ const dashboardRoutes = [
   },
   {
     path: "/table",
-    name: "Table List",
+    name: "Lista de Tablas",
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
